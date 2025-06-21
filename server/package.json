@@ -1,0 +1,23 @@
+{
+  "name": "snapdocs-server",
+  "version": "1.0.0",
+  "description": "Backend API's for SnapDocs",
+  "author": "Bhaskar Pasupurathi.",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"No test defined\""
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node-dev": "2.0.0",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=20.17.0",
+    "npm": ">=10.6.0"
+  }
+}
