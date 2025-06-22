@@ -2,6 +2,17 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
+    "baseUrl": "src",
+    "paths": {
+      "@routes/*": ["routes/*"],
+      "@controllers/*": ["controllers/*"],
+      "@models/*": ["models/*"],
+      "@repositories/*": ["repositories/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@interfaces/*": ["domain/types/*"],
+      "@enums/*": ["domain/enums/*"],
+      "@validators/*": ["domain/validators/*"]
+    },
     "rootDir": "src",
     "outDir": "dist",
     "esModuleInterop": true,

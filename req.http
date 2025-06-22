@@ -1,0 +1,21 @@
+
+POST http://localhost:3000/api/signup 
+Content-Type: application/json
+
+{
+    "firstName": "Bhaskar",
+    "lastName": "Pasupurathi",
+    "email": "bhaskar@snapdocs.com",
+    "password": "Welcome123!",
+    "businessName": "Snap Docs",
+    "businessType": "Human Resources"
+}
+
+###
+POST http://localhost:6000/api/login 
+Content-Type: application/json
+
+{
+    "email": "bhaskar@snapdocs.com",
+    "password": "Welcome123!"
+}
