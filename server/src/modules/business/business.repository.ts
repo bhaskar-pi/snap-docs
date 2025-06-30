@@ -13,3 +13,9 @@ export const createBusiness = async (
 ): Promise<BusinessDocument> => {
   return await BusinessModel.create(business);
 };
+
+export const getBusinessById = async (
+  businessId: string
+): Promise<BusinessDocument | null> => {
+  return await BusinessModel.findById(businessId);
+};
