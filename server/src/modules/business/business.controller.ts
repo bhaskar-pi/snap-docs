@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import { BusinessRequest } from "shared/types/business.types";
 import { createBusiness, getBusinessByEmail } from "./business.repository";
 import { getBusinessDto } from "./business.dto";
+import { BusinessRequest } from "@interfaces/business.types";
 
 export const registerBusiness = async (request: Request, response: Response) => {
   const business: BusinessRequest = request.body;

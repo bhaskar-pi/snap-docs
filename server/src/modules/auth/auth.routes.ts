@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { login } from "modules/auth/auth.controller";
-import { validateLoginRequest } from "modules/auth/auth.middleware";
-import { LoginRequestValidation } from "modules/auth/auth.validator";
+import { validateLoginRequest } from "./auth.middleware";
+import { LoginRequestValidation } from "./auth.validator";
+import { login } from "./auth.controller";
 
 const authRouter = Router();
 

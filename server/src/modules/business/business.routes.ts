@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { validateBusiness } from "modules/business/business.middleware";
 import { BusinessRegistrationRequest } from "./business.validator";
 import { registerBusiness } from "./business.controller";
+import { validateBusiness } from "./business.middleware";
 
 const businessRoutes = Router();
 

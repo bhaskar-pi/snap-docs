@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { ENV } from "config/env";
-import { Session } from "shared/types/auth.types";
-import { getBusinessByEmail } from "modules/business/business.repository";
+import { getBusinessByEmail } from "@modules/business";
+import { Session } from "@interfaces/auth.types";
 
 export const login = async (request: Request, response: Response) => {
   const { email, password } = request.body;

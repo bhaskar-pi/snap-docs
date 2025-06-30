@@ -4,13 +4,12 @@
     "module": "commonjs",
     "baseUrl": "src",
     "paths": {
-      "@routes/*": ["routes/*"],
-      "@controllers/*": ["controllers/*"],
-      "@models/*": ["models/*"],
-      "@middlewares/*": ["middlewares/*"],
-      "@interfaces/*": ["types/*"],
-      "@enums/*": ["enums/*"],
-      "@validators/*": ["validators/*"]
+      "@modules/*": ["modules/*"],
+      "@enums/*": ["shared/enums/*"],
+      "@dtos/*": ["shared/dtos/*"],
+      "@interfaces/*": ["shared/types/*"],
+      "@utils/*" : ["shared/utils/*"],
+      "@config/*": ["config/*"]
     },
     "rootDir": "src",
     "outDir": "dist",
