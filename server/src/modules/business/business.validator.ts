@@ -1,6 +1,6 @@
 import zod from "zod";
 
-export const BusinessValidator = zod.object({
+export const BusinessRegistrationRequest = zod.object({
   firstName: zod.string().trim().min(1, "First name is required"),
   lastName: zod.string().trim().min(1, "Last name is required"),
   email: zod.string().email("Invalid email"),
