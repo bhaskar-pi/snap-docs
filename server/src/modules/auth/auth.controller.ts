@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { ENV } from "config/env";
+import { BusinessRequest } from "shared/types/business.types";
+import { Session } from "shared/types/auth.types";
+import { getBusinessDto } from "shared/utils/business.utils";
 import {
   createBusiness,
   getBusinessByEmail,
-} from "@repositories/business.repository";
-import { BusinessRequest } from "@interfaces/business.types";
-import { Session } from "@interfaces/auth.types";
-import { getBusinessDto } from "utils/business.utils";
-import { ENV } from "env";
+} from "modules/business/business.repository";
 
 export const login = async (request: Request, response: Response) => {
   const { email, password } = request.body;

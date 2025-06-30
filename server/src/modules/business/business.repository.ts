@@ -1,5 +1,5 @@
-import { BusinessDocument, BusinessRequest } from "@interfaces/business.types";
-import { BusinessModel } from "@models/business.model";
+import { BusinessDocument, BusinessRequest } from "shared/types/business.types";
+import { BusinessModel } from "./business.model";
 
 export const getBusinessByEmail = async (
   email: string

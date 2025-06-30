@@ -1,5 +1,5 @@
-import { BusinessDocument } from "@interfaces/business.types";
-import { BusinessDto } from "domain/dtos/business.dto";
+import { BusinessDocument } from "shared/types/business.types";
+import { BusinessDto } from "shared/dtos/business.dto";
 
 export const getBusinessDto = (business: BusinessDocument): BusinessDto => {
   return {

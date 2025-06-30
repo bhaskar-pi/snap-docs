@@ -1,7 +1,6 @@
 import mongoose, { Schema } from "mongoose";
-
-import { BusinessType } from "@enums/business.enum";
-import { BusinessDocument } from "@interfaces/business.types";
+import { BusinessType } from "shared/enums/business.enum";
+import { BusinessDocument, BusinessRequest } from "shared/types/business.types";
 
 const schema = new Schema<BusinessDocument>(
   {

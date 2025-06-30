@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { BusinessType } from "@enums/business.enum";
+import { BusinessType } from "shared/enums/business.enum";
 
 export interface BaseBusiness {
   firstName: string;

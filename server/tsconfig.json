@@ -7,11 +7,10 @@
       "@routes/*": ["routes/*"],
       "@controllers/*": ["controllers/*"],
       "@models/*": ["models/*"],
-      "@repositories/*": ["repositories/*"],
       "@middlewares/*": ["middlewares/*"],
-      "@interfaces/*": ["domain/types/*"],
-      "@enums/*": ["domain/enums/*"],
-      "@validators/*": ["domain/validators/*"]
+      "@interfaces/*": ["types/*"],
+      "@enums/*": ["enums/*"],
+      "@validators/*": ["validators/*"]
     },
     "rootDir": "src",
     "outDir": "dist",
