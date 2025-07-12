@@ -1,5 +1,5 @@
 import { HStack } from "@chakra-ui/react";
-import InputText from "@components/Form/InputText";
+import InputText from "@components/FormFields/InputText";
 
 interface FieldConfig {
   label: string;
