@@ -1,18 +1,16 @@
 import React from "react";
-import { Field, Input } from "@chakra-ui/react";
+import { Field, Input, type InputProps } from "@chakra-ui/react";
 
-interface Props {
+interface Props extends InputProps {
   label: string;
-  placeholder: string;
-  type: string;
+  ref?: React.Ref<HTMLInputElement>;
   info?: string;
-  width?: string;
 }
 
 const InputText: React.FC<Props> = ({
   label,
-  placeholder,
   info,
+  ref,
   width = "2xl",
   ...props
 }) => {
@@ -21,7 +19,7 @@ const InputText: React.FC<Props> = ({
       <Field.Label fontWeight="medium" fontSize="sm" w={width}>
         {label}
       </Field.Label>
-      <Input placeholder={placeholder} {...props} />
+      <Input ref={ref} {...props} />
       {info && <Field.HelperText>{info}</Field.HelperText>}
     </Field.Root>
   );

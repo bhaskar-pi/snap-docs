@@ -1,6 +1,7 @@
-import FileInput from "./FileInput";
-import InputPair from "./InputPair";
-import InputText from "./InputText";
+import FileInput from "./file-input";
+import InputPair from "./input-pairs";
+import InputText from "./inut-text";
+import { PasswordInput } from "./passoword-input";
 import SelectField from "./Select";
 
 export const Form = {
@@ -8,4 +9,5 @@ export const Form = {
   InputPair: InputPair,
   Select: SelectField,
   FileInput: FileInput,
+  PasswordInput: PasswordInput,
 };
