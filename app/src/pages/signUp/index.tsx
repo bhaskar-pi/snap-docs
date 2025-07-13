@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Button, Card, Stack, Text } from "@chakra-ui/react";
-import { Form } from "@components/FormFields";
-import { mapEnumToOptions } from "helpers/misc";
-import { BusinessType } from "enums/business";
-import Logo from "@components/Logo";
-import styles from "./singUp.module.css";
-import type { SignUpForm } from "@custom-types/auth";
 import { Link } from "react-router-dom";
+import { Form } from "@components/FormFields";
+import Logo from "@components/Logo";
+import type { SignUpForm } from "@custom-types/auth";
+import { BusinessType } from "@enums/business";
+import { mapEnumToOptions } from "@helpers/misc";
+import styles from "./singUp.module.css";
 
 const SignUp: React.FC = () => {
   const [signUpForm, setSignUpForm] = useState<SignUpForm>({} as SignUpForm);

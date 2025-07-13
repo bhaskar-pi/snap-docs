@@ -12,7 +12,9 @@
       "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
       "@custom-types/*": ["types/*"],
-      "@enums/*": ["enums/*"]
+      "@enums/*": ["enums/*"],
+      "@constants/*": ["constants/*"],
+      "@helpers/*": ["helpers/*"]
       
     },
 
