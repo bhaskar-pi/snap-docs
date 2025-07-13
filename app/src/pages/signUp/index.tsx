@@ -19,7 +19,7 @@ const SignUp: React.FC = () => {
   };
 
   const onSignUp = () => {
-    console.log({ signUpForm });
+   
   };
 
   return (
