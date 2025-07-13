@@ -22,7 +22,7 @@ axiosInstance.interceptors.request.use((config) => {
 });
 
 axiosInstance.interceptors.response.use(
-  (response) => response,
+  (response) => response.data as Axios.AxiosXHR<unknown>,
   (error) => {
     const errorMsg = getErrorMessage(error);
     const data = error?.response?.data;
@@ -32,7 +32,9 @@ axiosInstance.interceptors.response.use(
     if (status === 400 || status === 402) {
       const validationErrors = data?.errors;
       if (validationErrors && typeof validationErrors === "object") {
-        const firstError = getFirstZodErrorMessage(validationErrors);
+        const firstError =
+          getFirstZodErrorMessage(validationErrors) ||
+          "Missing required fields";
         toast.error(firstError);
         return Promise.reject(error);
       }

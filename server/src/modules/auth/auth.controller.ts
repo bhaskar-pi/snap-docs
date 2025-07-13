@@ -12,7 +12,7 @@ export const login = async (request: Request, response: Response) => {
 
   if (!business) {
     response.status(400).json({
-      message: "Email does not exist",
+      message: "Email does not exist. Please register",
     });
     return;
   }

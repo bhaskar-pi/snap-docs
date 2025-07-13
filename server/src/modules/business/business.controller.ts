@@ -28,12 +28,9 @@ export const registerBusiness = async (
     ...business,
     password: hashedPassword,
   };
-  const createdBusiness = await createBusiness(newBusiness);
-  const businessDto = getBusinessDto(createdBusiness);
+  await createBusiness(newBusiness);
 
-  response
-    .status(201)
-    .json({ message: "Signup successfull", data: businessDto });
+  response.status(201).json({ message: "Signup successfull" });
 };
 
 export const findBusinessById = async (

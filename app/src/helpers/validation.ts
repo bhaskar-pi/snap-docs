@@ -1,6 +1,8 @@
+import type { Error } from "@custom-types/misc";
+
 export const getFirstZodErrorMessage = (
   errors: Record<string, { _errors?: string[] }>
-): string => {
+): string | undefined => {
   const keys = Object.keys(errors).filter((key) => key !== "_errors");
   const firstKey = keys[0];
 
@@ -10,14 +12,9 @@ export const getFirstZodErrorMessage = (
       return fieldErrors[0];
     }
   }
-
-  return "Validation failed";
 };
 
-export const getErrorMessage = (error: {
-  response: { data: { message: string }; statusText: string };
-  message: string;
-}): string => {
+export const getErrorMessage = (error: Error): string => {
   return (
     error?.response?.data?.message ||
     error?.message ||

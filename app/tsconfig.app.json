@@ -6,7 +6,8 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-     "baseUrl": "src",
+    "baseUrl": "src",
+    "noImplicitAny": false,
     "paths": {
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
@@ -15,7 +16,8 @@
       "@enums/*": ["enums/*"],
       "@constants/*": ["constants/*"],
       "@helpers/*": ["helpers/*"],
-      "@api/*": ["api/*"]
+      "@api/*": ["api/*"],
+      "@store/*": ["store/*"]
       
     },
 

@@ -4,9 +4,13 @@ import Logo from "@components/Logo";
 import type { SignInForm } from "@custom-types/auth";
 import styles from "./signIn.module.css";
 import { Form } from "@components/FormFields";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuthStore from "@store/useAuthStore";
 
 const SignIn: React.FC = () => {
+  const navigate = useNavigate();
+  const { isLoading, session, signIn } = useAuthStore();
+
   const [signInForm, setSignInForm] = useState<SignInForm>({
     email: "",
     password: "",
@@ -19,8 +23,9 @@ const SignIn: React.FC = () => {
     }));
   };
 
-  const onSingIn = () => {
-    console.log({ signInForm });
+  const onSingIn = async () => {
+    await signIn(signInForm, navigate);
+    console.log({ session, isLoading });
   };
 
   return (
@@ -46,6 +51,7 @@ const SignIn: React.FC = () => {
               onChange={(e) => {
                 onChangeEmailAndPassword("email", e.target.value);
               }}
+              disabled={isLoading}
             />
 
             <Form.PasswordInput
@@ -55,6 +61,7 @@ const SignIn: React.FC = () => {
               onChange={(e) => {
                 onChangeEmailAndPassword("password", e.target.value);
               }}
+              disabled={isLoading}
             />
           </Stack>
         </Card.Body>
@@ -66,6 +73,8 @@ const SignIn: React.FC = () => {
             textAlign="center"
             fontSize="sm"
             type="submit"
+            loading={isLoading}
+            loadingText="Signing in..."
             onClick={onSingIn}
           >
             Sign in

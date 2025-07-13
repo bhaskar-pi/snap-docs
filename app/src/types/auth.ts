@@ -15,3 +15,11 @@ export interface SignUpForm {
   businessType: BusinessType;
   logo?: string;
 }
+
+export interface Session {
+  firstName: string;
+  lastName: string;
+  email: string;
+  businessId: string;
+  token: string;
+}
