@@ -11,7 +11,9 @@ export interface BaseBusiness {
   logo?: string;
 }
 
-export interface BusinessRequest extends BaseBusiness {}
+export interface BusinessRequest extends BaseBusiness {
+  confirmPassword: string;
+}
 
 export interface BusinessDocument extends BaseBusiness {
   _id: Types.ObjectId;

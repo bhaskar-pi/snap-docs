@@ -43,7 +43,7 @@ export const findBusinessById = async (
   const businessId = request.params.businessId;
 
   if (!businessId) {
-    response.status(400).json({ message: "Business Id found" });
+    response.status(400).json({ message: "Business Id not found" });
     return;
   }
 

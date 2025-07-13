@@ -14,7 +14,8 @@
       "@custom-types/*": ["types/*"],
       "@enums/*": ["enums/*"],
       "@constants/*": ["constants/*"],
-      "@helpers/*": ["helpers/*"]
+      "@helpers/*": ["helpers/*"],
+      "@api/*": ["api/*"]
       
     },
 

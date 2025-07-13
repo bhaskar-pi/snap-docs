@@ -1,11 +1,35 @@
 import zod from "zod";
 
-export const BusinessRegistrationRequest = zod.object({
-  firstName: zod.string().trim().min(1, "First name is required"),
-  lastName: zod.string().trim().min(1, "Last name is required"),
-  email: zod.string().email("Invalid email"),
-  password: zod.string().min(8, "Password must be at least 8 characters"),
-  businessName: zod.string().trim().min(1, "Business name is required"),
-  businessType: zod.string().trim().min(1, "Business type is required"),
-  logo: zod.string().url().optional(),
-});
+export const BusinessRegistrationRequest = zod
+  .object({
+    firstName: zod
+      .string()
+      .trim()
+      .nonempty("First name is required")
+      .min(2, "First name must be at least 2 characters")
+      .max(20, "First name must not exceed 15 characters"),
+    lastName: zod
+      .string()
+      .trim()
+      .nonempty("Last name is required")
+      .min(2, "Last name must be at least 2 characters")
+      .max(20, "Last name must not exceed 10 characters"),
+    email: zod.string().email("Invalid email address"),
+    password: zod
+      .string()
+      .nonempty("Password is required")
+      .min(8, "Password must be at least 8 characters"),
+    confirmPassword: zod.string().min(8, "Confirm your password"),
+    businessName: zod
+      .string()
+      .trim()
+      .nonempty("Business name is required")
+      .max(20, "Business name must not exceed 20 characters"),
+    businessType: zod.string().trim().min(1, "Business type is required"),
+    logo: zod.string().optional(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ["confirmPassword"],
+    message: "Password do not match",
+  })
+  .transform(({ confirmPassword, ...rest }) => rest);

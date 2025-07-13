@@ -6,10 +6,22 @@ import Logo from "@components/Logo";
 import type { SignUpForm } from "@custom-types/auth";
 import { BusinessType } from "@enums/business";
 import { mapEnumToOptions } from "@helpers/misc";
+import { signUpApi } from "@api/endpoints/auth";
 import styles from "./singUp.module.css";
 
+const initialState: SignUpForm = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  businessName: "",
+  businessType: "" as unknown as BusinessType,
+  logo: "",
+};
+
 const SignUp: React.FC = () => {
-  const [signUpForm, setSignUpForm] = useState<SignUpForm>({} as SignUpForm);
+  const [signUpForm, setSignUpForm] = useState<SignUpForm>(initialState);
 
   const onChangeSignUpForm = (prop: string, value: string | File) => {
     setSignUpForm((prev) => ({
@@ -18,8 +30,9 @@ const SignUp: React.FC = () => {
     }));
   };
 
-  const onSignUp = () => {
-   
+  const onSignUp = async () => {
+    const response = await signUpApi(signUpForm);
+    console.log({ response });
   };
 
   return (
