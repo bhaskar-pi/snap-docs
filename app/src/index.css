@@ -1,11 +1,15 @@
 :root {
   --bg-light: #e7eefe;
-  --white: #ffffff;
   --dark: #0f172a;
   --grey-dark: #4b5563;
   --grey: #65748b;
   --logo-dark: #111827;
   --blue: #2564eb;
+  --primary: #5038ed;
+  --primaryL1: #9181f4;
+  --primaryL2: #dcd7fb;
+  --white: #ffffff;
+  --grey1: #6c757d;
 }
 
 body {
@@ -26,6 +30,7 @@ span {
   height: 100vh;
 }
 
-.input-error {
-  border: 1px solid red !important;
+.form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(145, 129, 244, 0.25); /* --primaryL1 */
 }

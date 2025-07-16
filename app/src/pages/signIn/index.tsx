@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Button, Card, Stack, Text } from "@chakra-ui/react";
-import Logo from "@components/Logo";
 import type { SignInForm } from "@custom-types/auth";
 import styles from "./signIn.module.css";
-import { Form } from "@components/FormFields";
 import { Link, useNavigate } from "react-router-dom";
 import useAuthStore from "@store/useAuthStore";
+import AuthLayout from "@components/auth-layout";
+import { Form } from "@components/form-fields";
+import Button from "@components/button";
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
@@ -24,70 +24,68 @@ const SignIn: React.FC = () => {
   };
 
   const onSingIn = async () => {
+    console.log({signInForm})
     await signIn(signInForm, navigate);
     console.log({ session, isLoading });
   };
 
   return (
-    <div className={styles.container}>
-      <Logo className={styles.logo} />
-      <Card.Root maxW="md">
-        <Card.Header>
-          <Card.Title fontSize="2xl" fontWeight="600" textAlign="center">
-            Welcome Back
-          </Card.Title>
-          <Card.Description fontSize="sm" color="gray.500" textAlign="center">
-            Sign in to your account
-          </Card.Description>
-        </Card.Header>
-
-        <Card.Body>
-          <Stack gap="4" w="full">
+    <AuthLayout>
+      <div className={`${styles.container}`}>
+        <div className="w-100 px-3 py-3" style={{ maxWidth: "400px" }}>
+          <h2 className={styles.title}>Welcome!</h2>
+          <p className={styles.description}>
+            Sign in to your SnapDocs account
+          </p>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              onSingIn();
+            }}
+            autoComplete="on"
+          >
             <Form.Input
               label="Email"
-              placeholder="Enter your email"
+              placeholder="Enter email..."
+              className="py-2"
+              value={signInForm.email}
+              onChange={(e) =>
+                onChangeEmailAndPassword("email", e.target.value)
+              }
+              required
               type="email"
-              value={signInForm?.email}
-              onChange={(e) => {
-                onChangeEmailAndPassword("email", e.target.value);
-              }}
-              disabled={isLoading}
+              id="email"
+              autoComplete="email"
             />
-
             <Form.PasswordInput
               label="Password"
-              placeholder="Enter your password"
-              value={signInForm?.password}
-              onChange={(e) => {
-                onChangeEmailAndPassword("password", e.target.value);
-              }}
-              disabled={isLoading}
+              placeholder="Enter password..."
+              className="py-2"
+              value={signInForm.password}
+              onChange={(e) =>
+                onChangeEmailAndPassword("password", e.target.value)
+              }
+              required
+              id="password"
+              autoComplete="current-password"
             />
-          </Stack>
-        </Card.Body>
 
-        <Card.Footer flexDirection="column" gap={3}>
-          <Button
-            variant="solid"
-            w="full"
-            textAlign="center"
-            fontSize="sm"
-            type="submit"
-            loading={isLoading}
-            loadingText="Signing in..."
-            onClick={onSingIn}
-          >
-            Sign in
-          </Button>
-          <Text fontSize="sm" color="gray.500" flexDirection="row">
-            Don't have an account?{" "}
-            <Link to="/sign-up" style={{ color: "var(--blue)" }}>
-              Sign Up
-            </Link>
-          </Text>
-        </Card.Footer>
-      </Card.Root>
-    </div>
+            <Button type="submit" className="py-2 mt-2">
+              {<p>Login</p>}
+            </Button>
+
+            <div className="mt-2 text-center">
+              <Link to="/signup" className={` ${styles.footer}`}>
+                Don't have an account?{" "}
+                <span className="fw-normal" style={{ color: "var(--primary)" }}>
+                  Sign up
+                </span>
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </AuthLayout>
   );
 };
 

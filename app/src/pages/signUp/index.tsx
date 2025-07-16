@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Card, Stack, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { Form } from "@components/FormFields";
-import Logo from "@components/Logo";
+import { Form } from "@components/form-fields";
+import Logo from "@components/logo";
 import type { SignUpForm } from "@custom-types/auth";
 import { BusinessType } from "@enums/business";
 import { mapEnumToOptions } from "@helpers/misc";
