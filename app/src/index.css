@@ -10,6 +10,15 @@
   --primaryL2: #dcd7fb;
   --white: #ffffff;
   --grey1: #6c757d;
+
+  --font-main: "Inter", sans-serif;
+}
+
+* {
+  font-family: var(--font-main) !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
