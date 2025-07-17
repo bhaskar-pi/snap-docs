@@ -12,7 +12,8 @@ const Logo: React.FC<Props> = ({ styles: extraStyles, className }) => {
       className={`${className ? className : ""}`}
       style={{ ...extraStyles }}
     >
-      <h1 className={styles.logo}>SD</h1>
+      <h1 className={styles.logo}>SnapDocs</h1>
+      <p></p>
     </div>
   );
 };

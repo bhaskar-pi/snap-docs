@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
 
   if (variant === "primary") {
     style = {
-      backgroundColor: "var(--primary)",
+      background: "linear-gradient(to left, #9181F4 0%, #5038ED 100%)",
       color: "#fff",
       fontWeight: 500,
       ...props.style,

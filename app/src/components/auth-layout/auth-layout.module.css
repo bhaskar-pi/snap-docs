@@ -7,21 +7,28 @@
 }
 
 .container {
-  background-image: url("../../assets/auth-layout-bg.png");
-  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 50px !important;
+  background: linear-gradient(100deg, #9181f4 0%, #5038ed 100%);
 }
 
 .brand {
   color: white;
-  font-weight: 600;
-  font-size: 42px;
-  margin-left: 12px !important;
+  font-weight: bold;
+  font-size: 48px;
+  text-align: center;
+}
+
+.description {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 12px !important;
+  text-align: center;
 }
 
 .children {
