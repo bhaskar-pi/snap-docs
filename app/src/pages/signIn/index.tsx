@@ -30,7 +30,7 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <AuthLayout>
+    <AuthLayout title="Sign In">
       <div className={`${styles.container}`}>
         <div className="w-100 px-3 py-3" style={{ maxWidth: "400px" }}>
           <h2 className={styles.title}>Welcome!</h2>
