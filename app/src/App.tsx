@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Toaster from "@components/toaster";
 import SignIn from "@pages/signin";
 import SignUp from "@pages/signup";
-import Toaster from "@components/toaster";
+import Dashboard from "@pages/dashboard";
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/login" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
       <Toaster />

@@ -1,0 +1,10 @@
+.container {
+  background-color: var(--white);
+}
+
+.navcontainer {
+  margin-top: 50px !important;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+}

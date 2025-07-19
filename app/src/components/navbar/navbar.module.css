@@ -1,0 +1,21 @@
+.navitem {
+  color: var(--dark);
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 12px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.navitem:hover {
+  background-color: #f0f0f0;
+}
+
+.active {
+  background-color: var(--primaryL2) !important;
+  color: var(--primary);
+}

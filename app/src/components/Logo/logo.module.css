@@ -1,8 +1,26 @@
-
 .logo {
   background-color: transparent;
-  color: #fff;
+  color: var(--dark);
   font-weight: bold;
   padding: 4px;
   border-radius: 5px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 8px !important;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container {
+  background-color: var(--primary);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
 }

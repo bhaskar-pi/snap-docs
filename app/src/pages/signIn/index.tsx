@@ -9,7 +9,7 @@ import Button from "@components/button";
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
-  const { isLoading, session, signIn } = useAuthStore();
+  const { isLoading, signIn } = useAuthStore();
 
   const [signInForm, setSignInForm] = useState<SignInForm>({
     email: "",
@@ -24,9 +24,7 @@ const SignIn: React.FC = () => {
   };
 
   const onSingIn = async () => {
-    console.log({ signInForm });
     await signIn(signInForm, navigate);
-    console.log({ session, isLoading });
   };
 
   return (
@@ -68,7 +66,13 @@ const SignIn: React.FC = () => {
               autoComplete="current-password"
             />
 
-            <Button disabled={isLoading} type="submit" variant="primary"  className="py-2 mt-3">
+            <Button
+              disabled={isLoading}
+              loadingText="Loading..."
+              type="submit"
+              variant="primary"
+              className="py-2 mt-3"
+            >
               {<p>Login</p>}
             </Button>
 

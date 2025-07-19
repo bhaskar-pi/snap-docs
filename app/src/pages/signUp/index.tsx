@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form } from "@components/form-fields";
 import type { SignUpForm } from "@custom-types/auth";
 import { BusinessType } from "@enums/business";
 import { mapEnumToOptions } from "@helpers/misc";
-import { signUpApi } from "@api/endpoints/auth";
 import AuthLayout from "@components/auth-layout";
 import Button from "@components/button";
 import styles from "./singUp.module.css";
+import useAuthStore from "@store/useAuthStore";
 
 const initialState: SignUpForm = {
   firstName: "",
@@ -21,6 +21,9 @@ const initialState: SignUpForm = {
 };
 
 const SignUp: React.FC = () => {
+  const navigate = useNavigate();
+  const { isLoading, signUp } = useAuthStore();
+
   const [signUpForm, setSignUpForm] = useState<SignUpForm>(initialState);
 
   const onChangeSignUpForm = (prop: string, value: string | File) => {
@@ -30,11 +33,8 @@ const SignUp: React.FC = () => {
     }));
   };
 
-  console.log({ signUpForm });
-
   const onSignUp = async () => {
-    const response = await signUpApi(signUpForm);
-    console.log({ response });
+    await signUp(signUpForm, navigate);
   };
 
   return (
@@ -144,7 +144,12 @@ const SignUp: React.FC = () => {
                 <Form.PasswordInput {...filed} />
               ))}
             </div>
-            <Button type="submit" className="py-2 mt-3">
+            <Button
+              type="submit"
+              className="py-2 mt-3"
+              disabled={isLoading}
+              isLoading={isLoading}
+            >
               Create Account
             </Button>
             <div className="mt-2 text-center">
