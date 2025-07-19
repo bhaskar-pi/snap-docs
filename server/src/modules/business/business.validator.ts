@@ -19,7 +19,7 @@ export const BusinessRegistrationRequest = zod
       .string()
       .nonempty("Password is required")
       .min(8, "Password must be at least 8 characters"),
-    confirmPassword: zod.string().min(8, "Confirm your password"),
+    confirmPassword: zod.string().nonempty("Confirm password is required"),
     businessName: zod
       .string()
       .trim()

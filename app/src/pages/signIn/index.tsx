@@ -24,7 +24,7 @@ const SignIn: React.FC = () => {
   };
 
   const onSingIn = async () => {
-    console.log({signInForm})
+    console.log({ signInForm });
     await signIn(signInForm, navigate);
     console.log({ session, isLoading });
   };
@@ -34,9 +34,7 @@ const SignIn: React.FC = () => {
       <div className={`${styles.container}`}>
         <div className="w-100 px-3 py-3" style={{ maxWidth: "400px" }}>
           <h2 className={styles.title}>Welcome!</h2>
-          <p className={styles.description}>
-            Sign in to your SnapDocs account
-          </p>
+          <p className={styles.description}>Sign in to your SnapDocs account</p>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -70,12 +68,12 @@ const SignIn: React.FC = () => {
               autoComplete="current-password"
             />
 
-            <Button type="submit" className="py-2 mt-3">
+            <Button disabled={isLoading} type="submit" variant="primary"  className="py-2 mt-3">
               {<p>Login</p>}
             </Button>
 
             <div className="mt-2 text-center">
-              <Link to="/signup" className={` ${styles.footer}`}>
+              <Link to="/signup" className={`${styles.footer}`}>
                 Don't have an account?{" "}
                 <span className="fw-normal" style={{ color: "var(--primary)" }}>
                   Sign up

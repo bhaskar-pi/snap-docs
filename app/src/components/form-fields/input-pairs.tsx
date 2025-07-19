@@ -18,7 +18,7 @@ const InputPair: React.FC<Props> = ({ fields }) => {
     <div className="d-flex gap-3 w-100">
       {fields.map((field, index) => (
         <div key={index} style={{ flex: 1 }}>
-          <Input {...field} />
+          <Input {...field} id={field.id || `input-${index}`} />
         </div>
       ))}
     </div>

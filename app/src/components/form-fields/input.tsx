@@ -18,7 +18,7 @@ const Input: React.FC<InputTextProps> = ({
   ...props
 }) => {
   return (
-    <div className="mb-3">
+    <div className="mb-3 w-100">
       <label htmlFor={id} className="form-label">
         {label}
       </label>

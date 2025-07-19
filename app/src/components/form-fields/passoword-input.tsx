@@ -20,7 +20,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="mb-3 position-relative">
+    <div className="mb-3 position-relative w-100">
       <label htmlFor={id} className="form-label">
         {label}
       </label>

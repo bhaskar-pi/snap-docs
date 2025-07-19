@@ -1,0 +1,17 @@
+.button-base {
+  padding: 10px 20px;
+  border-radius: 5px !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  height: 45px !important;
+}
+
+.button-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button-enabled {
+  cursor: pointer;
+  opacity: 1;
+}

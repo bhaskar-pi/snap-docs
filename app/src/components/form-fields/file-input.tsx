@@ -1,40 +1,40 @@
 import React from "react";
-import { CloseButton, FileUpload, Input, InputGroup } from "@chakra-ui/react";
 
 interface Props {
   label: string;
   placeholder: string;
-  width?: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  onChange: (e?: React.ChangeEvent<HTMLInputElement>) => void;
+  id?: string;
+  required?: boolean;
+  accept?: string;
 }
 
-const FileInput: React.FC<Props> = ({ label, width = "full", onChange }) => {
+const FileInput: React.FC<Props> = ({
+  label,
+  placeholder,
+  onChange,
+  id,
+  required,
+  accept = "image/*",
+}) => {
   return (
-    <FileUpload.Root gap="1" width={width}>
-      <FileUpload.HiddenInput onChange={(e) => onChange(e)} />
-      <FileUpload.Label>{label}</FileUpload.Label>
-      <InputGroup
-        endElement={
-          <FileUpload.ClearTrigger asChild>
-            <CloseButton
-              me="-1"
-              size="xs"
-              variant="plain"
-              focusVisibleRing="inside"
-              focusRingWidth="2px"
-              pointerEvents="auto"
-            />
-          </FileUpload.ClearTrigger>
-        }
-      >
-        <Input asChild>
-          <FileUpload.Trigger>
-            <FileUpload.FileText lineClamp={1} />
-          </FileUpload.Trigger>
-        </Input>
-      </InputGroup>
-    </FileUpload.Root>
+    <div className="mb-3 position-relative">
+      <label htmlFor={id} className="form-label">
+        {label}
+      </label>
+      <div style={{ position: "relative" }}>
+        <input
+          type="file"
+          className={`form-control`}
+          id={id}
+          onChange={onChange}
+          required={required}
+          aria-label={placeholder}
+          accept={accept}
+        />
+      </div>
+    </div>
   );
 };
 

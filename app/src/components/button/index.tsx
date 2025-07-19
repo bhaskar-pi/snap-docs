@@ -1,8 +1,10 @@
 import React from "react";
+import { getButtonVariantStyle } from "./button";
+import styles from "./button.module.css";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "success" | "negative" | "primary-gradient";
   isLoading?: boolean;
   loadingText?: string;
 }
@@ -16,38 +18,16 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  let btnClass = "btn w-100 border-0 ";
-  let style: React.CSSProperties = {};
-
-  if (variant === "primary") {
-    style = {
-      background: "linear-gradient(to left, #9181F4 0%, #5038ED 100%)",
-      color: "#fff",
-      fontWeight: 500,
-      ...props.style,
-    };
-  } else if (variant === "secondary") {
-    style = {
-      backgroundColor: "var(--primaryL1)",
-      color: "#fff",
-      fontWeight: 600,
-      ...props.style,
-    };
-  } else if (variant === "outline") {
-    style = {
-      backgroundColor: "transparent",
-      color: "var(--primary)",
-      border: "2px solid var(--primary)",
-      fontWeight: 600,
-      ...props.style,
-    };
-  }
-  if (className) btnClass += ` ${className}`;
+  const variantStyle = getButtonVariantStyle(variant);
+  const stateClass =
+    disabled || isLoading
+      ? styles["button-disabled"]
+      : styles["button-enabled"];
 
   return (
     <button
-      className={btnClass}
-      style={style}
+      className={`${styles['button-base']} ${stateClass} ${className} w-100`.trim()}
+      style={variantStyle}
       disabled={isLoading || disabled}
       {...props}
     >
