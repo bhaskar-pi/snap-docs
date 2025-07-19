@@ -5,7 +5,7 @@ const Dashboard: React.FC = () => {
   return (
     <Layout>
       <div className="container-fluid">
-        <h1>Dashbord</h1>
+        {/* <h1>hi</h1> */}
       </div>
     </Layout>
   );

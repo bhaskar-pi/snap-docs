@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 10px;
-  padding: 12px;
+  margin-bottom: 7px;
+  padding: 10px;
   font-weight: 500;
   border-radius: 5px;
 }
@@ -16,6 +16,6 @@
 }
 
 .active {
-  background-color: var(--primaryL2) !important;
   color: var(--primary);
+  background-color: var(--primaryL2) !important;
 }

@@ -18,9 +18,9 @@ const Layout: React.FC<Props> = ({ children, title }) => {
   return (
     <div className={`${styles.container} container-fluid`}>
       <div className="row vh-100">
-        <div className="col-md-2 p-4 border-end">
+        <div className={`col-md-2 p-4 ${styles.sidebar}`}>
           <Logo className="mb-4" />
-          <nav className={`${styles.navcontainer} nav"`}>
+          <nav className={`${styles.navcontainer} nav`}>
             {navItems.map((nav) => (
               <NavItem
                 key={nav.path}
@@ -37,7 +37,7 @@ const Layout: React.FC<Props> = ({ children, title }) => {
           </nav>
         </div>
 
-        <div className="col-md-10 p-4">
+        <div className="col-md-10 p-0">
           <Topbar title={title || "Dashboard"} description="Welcome Back!" />
           <div>{children}</div>
         </div>

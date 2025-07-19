@@ -9,6 +9,8 @@
   --grey1: #6c757d;
   --success: #198754;
   --negative: #dc3545;
+  --background: #f4f6f7;
+  --grey-1: #4c5563;
 
   --font-main: "Inter", sans-serif;
 }
@@ -21,7 +23,6 @@
 }
 
 body {
-  background-color: var(--bg-light);
   height: 100vh;
   width: 100%;
 }
