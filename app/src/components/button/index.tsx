@@ -1,21 +1,32 @@
 import React from "react";
 import { getButtonVariantStyle } from "./button";
 import styles from "./button.module.css";
+import type { LucideIcon } from "lucide-react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
-  variant?: "primary" | "success" | "negative" | "primary-gradient";
+  children: string;
+  variant?:
+    | "primary"
+    | "success"
+    | "negative"
+    | "primary-gradient"
+    | "neutral"
+    | "secondary";
   isLoading?: boolean;
   loadingText?: string;
+  startIcon?: LucideIcon;
+  endIcon?: LucideIcon;
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  variant = "primary",
+  variant,
   isLoading = false,
   loadingText = "Loading...",
   className = "",
   disabled,
+  startIcon: StartIcon,
+  endIcon: EndIcon,
   ...props
 }) => {
   const variantStyle = getButtonVariantStyle(variant);
@@ -26,12 +37,20 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${styles['button-base']} ${stateClass} ${className} w-100`.trim()}
+      className={`${styles["button-base"]} ${stateClass} w-100 ${className}`.trim()}
       style={variantStyle}
       disabled={isLoading || disabled}
       {...props}
     >
-      {isLoading ? loadingText : children}
+      {isLoading ? (
+        loadingText
+      ) : (
+        <div className="d-flex align-items-center justify-content-center">
+          {StartIcon && <StartIcon size={17} className="me-3" />}
+          {children}
+          {EndIcon && <EndIcon className="ms-3" />}
+        </div>
+      )}
     </button>
   );
 };

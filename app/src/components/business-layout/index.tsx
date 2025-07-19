@@ -6,11 +6,12 @@ import { navItems } from "./navitems";
 import NavItem from "@components/navbar";
 
 interface Props {
+  title: string;
+  description: string;
   children: React.ReactNode;
-  title?: string;
 }
 
-const Layout: React.FC<Props> = ({ children, title }) => {
+const BusinessLayout: React.FC<Props> = ({ children, title, description }) => {
   const onClickLogout = (path: string) => {
     console.log({ path });
   };
@@ -18,8 +19,8 @@ const Layout: React.FC<Props> = ({ children, title }) => {
   return (
     <div className={`${styles.container} container-fluid`}>
       <div className="row vh-100">
-        <div className={`col-md-2 p-4 ${styles.sidebar}`}>
-          <Logo className="mb-4" />
+        <div className={`col-md-3 p-4 ${styles.sidebar}`}>
+          <Logo className="mb-4" styles={{ marginTop: "-8px" }} />
           <nav className={`${styles.navcontainer} nav`}>
             {navItems.map((nav) => (
               <NavItem
@@ -37,13 +38,13 @@ const Layout: React.FC<Props> = ({ children, title }) => {
           </nav>
         </div>
 
-        <div className="col-md-10 p-0">
-          <Topbar title={title || "Dashboard"} description="Welcome Back!" />
-          <div>{children}</div>
+        <div className={`col-md-9 p-0 ${styles.rightContainer}`}>
+          <Topbar title={title} description={description} />
+          <div className={styles.contentWrapper}>{children}</div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Layout;
+export default BusinessLayout;

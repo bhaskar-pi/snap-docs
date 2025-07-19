@@ -149,6 +149,7 @@ const SignUp: React.FC = () => {
               className="py-2 mt-3"
               disabled={isLoading}
               isLoading={isLoading}
+              variant="primary"
             >
               Create Account
             </Button>

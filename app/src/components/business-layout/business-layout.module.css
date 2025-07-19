@@ -1,9 +1,9 @@
 .container {
-  background-color: var(--background);
+  height: 100vh;
 }
 
 .navcontainer {
-  margin-top: 50px !important;
+  margin-top: 35px !important;
   display: flex;
   flex-direction: column;
   padding: 0 !important;
@@ -11,10 +11,16 @@
 
 .sidebar {
   background-color: var(--white);
+  height: 100vh;
+  overflow: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1020;
+  width: 25%;
 }
 
 /* topbar */
-
 .topbar {
   background-color: var(--white);
   padding-left: 28px;
@@ -64,6 +70,21 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: var(--negative); 
+  background-color: var(--negative);
   border: 2px solid white;
+}
+
+/* context */
+.rightContainer {
+  margin-left: 25%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentWrapper {
+  flex: 1;
+  overflow-y: auto;
+  background-color: var(--background);
+  padding: 24px 24px 50px 24px;
 }

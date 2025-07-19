@@ -8,12 +8,12 @@ interface Props {
   description: string;
 }
 
-const Topbar: React.FC<Props> = () => {
+const Topbar: React.FC<Props> = ({ title, description }) => {
   return (
     <div className={styles.topbar}>
       <div className={styles.header}>
-        <h1>Dashboard</h1>
-        <p>Welcome back! Here is your document overview.</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </div>
       <div className={styles.profile}>
         <div className={styles.bellWrapper}>

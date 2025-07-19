@@ -4,6 +4,7 @@ import Toaster from "@components/toaster";
 import SignIn from "@pages/signin";
 import SignUp from "@pages/signup";
 import Dashboard from "@pages/dashboard";
+import SendDocRequest from "@pages/send-doc-request";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
           <Route path="/login" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/send-request" element={<SendDocRequest />} />
         </Routes>
       </BrowserRouter>
       <Toaster />

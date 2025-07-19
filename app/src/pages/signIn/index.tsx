@@ -73,7 +73,7 @@ const SignIn: React.FC = () => {
               variant="primary"
               className="py-2 mt-3"
             >
-              {<p>Login</p>}
+              Login
             </Button>
 
             <div className="mt-2 text-center">

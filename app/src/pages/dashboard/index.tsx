@@ -1,13 +1,14 @@
-import Layout from "@components/business-layout";
+import BusinessLayout from "@components/business-layout";
 import React from "react";
 
 const Dashboard: React.FC = () => {
   return (
-    <Layout>
-      <div className="container-fluid">
-        {/* <h1>hi</h1> */}
-      </div>
-    </Layout>
+    <BusinessLayout
+      title="Dashboard"
+      description="Welcome back! Here's your document review."
+    >
+      <div className="container-fluid"></div>
+    </BusinessLayout>
   );
 };
 
