@@ -2,7 +2,7 @@ import axios from "axios";
 import { redirect } from "react-router-dom";
 import toast from "react-hot-toast";
 import { ENV } from "@constants/env";
-import { getErrorMessage, getFirstZodErrorMessage } from "@helpers/validation";
+import { getFirstZodErrorMessage } from "@helpers/validation";
 import { getToken } from "@config/storage";
 
 export const axiosInstance = axios.create({
@@ -25,7 +25,6 @@ axiosInstance.interceptors.request.use((config) => {
 axiosInstance.interceptors.response.use(
   (response) => response.data as Axios.AxiosXHR<unknown>,
   (error) => {
-    const errorMsg = getErrorMessage(error);
     const data = error?.response?.data;
     const status = error?.response?.status;
 
@@ -43,13 +42,11 @@ axiosInstance.interceptors.response.use(
 
     // Unauthorized
     if (status === 401) {
-      toast.error(errorMsg);
       redirect("/login");
       return Promise.reject(error);
     }
 
     // General fallback
-    toast.error(errorMsg);
     return Promise.reject(error);
   }
 );

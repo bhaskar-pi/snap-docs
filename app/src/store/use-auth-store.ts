@@ -34,6 +34,7 @@ const useAuthStore = create<AuthState>((set) => ({
         getErrorMessage(error as unknown as Error) || "Sign in failed";
       set({ error: errorMsg, isLoading: false });
 
+      toast.error(errorMsg);
       console.error("Failed at singing in", error);
     }
   },
@@ -50,7 +51,7 @@ const useAuthStore = create<AuthState>((set) => ({
         getErrorMessage(error as unknown as Error) ||
         "Sign up failed. Please try again";
       set({ error: errorMsg, isLoading: false });
-
+      toast.error(errorMsg);
       console.error("Failed at singing up", error);
     }
   },
