@@ -1,10 +1,10 @@
 import type { Session, SignInForm, SignUpForm } from "@custom-types/auth";
-import { POST } from "api/requests";
+import { POST } from "@api/requests";
 
 export const signInApi = (data: SignInForm) => {
-  return POST<Session>("/login", data);
+  return POST<Session>("/business/login", data);
 };
 
 export const signUpApi = (data: SignUpForm) => {
-  return POST<void>("/register", data);
+  return POST<void>("/business/register", data);
 };

@@ -53,7 +53,7 @@ const DocRequirements: React.FC<Props> = ({
       </div>
       <div className="my-2">
         <p className={`${styles.selectedDocsHeader} my-2`}>
-          Selected Documents:
+          {`Selected Documents (${seletedDocuments?.length || 0}):`}
         </p>
         <div className={styles.selectedDocs}>
           {seletedDocuments.map((doc) => (
@@ -94,6 +94,7 @@ const DocRequirements: React.FC<Props> = ({
             addDocument(customDocument);
             setCustomDocument("");
           }}
+          disabled={!customDocument}
         >
           Add
         </Button>

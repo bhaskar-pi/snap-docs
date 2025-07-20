@@ -5,7 +5,7 @@ import Header from "@components/header";
 import { CalendarSearch } from "lucide-react";
 
 interface Props {
-  dueDate: string;
+  dueDate?: string;
   message?: string;
   onChangeDocumentReq: (prop: string, value: string) => void;
 }
@@ -18,7 +18,7 @@ const RequestDetails: React.FC<Props> = ({
     <div className={styles.requestDetailsContainer}>
       <Header name="Request Details" icon={CalendarSearch} />
       <Form.Input
-        required={true}
+        required={false}
         className="mt-2"
         type="date"
         label="Due Date"

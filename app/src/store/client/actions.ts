@@ -8,8 +8,6 @@ import { useClientStore } from "./store";
 export const sendDocumentRequestToClient = async (data: DocumentRequest) => {
   const { setLoading, setError } = useClientStore.getState();
 
-  console.log({setLoading})
-
   try {
     setLoading(true);
     setError(undefined);
@@ -19,7 +17,6 @@ export const sendDocumentRequestToClient = async (data: DocumentRequest) => {
     const message =
       getErrorMessage(err as Error) || "Send document request failed";
     setError(message);
-    toast.error(message);
   } finally {
     setLoading(false);
   }

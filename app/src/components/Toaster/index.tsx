@@ -36,7 +36,6 @@ const Toaster = () => {
             animation: t.visible
               ? "custom-enter 0.5s ease"
               : "custom-exit 0.5s ease forwards",
-            marginTop: '20px'
           }}
         >
           {({ icon, message }) => (

@@ -6,7 +6,7 @@ interface Document {
 export interface DocumentRequest {
   email: string;
   fullName: string;
-  dueDate: string;
+  dueDate?: string;
   message?: string;
   documents: Document[];
 }
