@@ -1,50 +1,24 @@
 import mongoose, { Schema } from "mongoose";
-import { DocumentStatus } from "@enums/document";
-import { DocumentRequest } from "@interfaces/documents";
+import { Client } from "@interfaces/client";
 
-// Sub-schema for a file (to support multiple files per request)
-const FileSchema = new Schema(
+const clientSchema = new Schema<Client>(
   {
-    name: { type: String, required: true },
-    size: { type: Number, required: true },
-    url: { type: String, required: true },
-    base64: { type: String }, // Optional, typically not stored in DB
+    fullName: { type: String, required: true },
+    email: { type: String, required: true },
+    phoneNumber: { type: String },
+    businesses: [
+      {
+        businessId: { type: String, required: true },
+        businessEmail: { type: String, required: true },
+        notes: { type: String },
+      },
+    ],
   },
-  { _id: false } // Prevents creating _id for each file object
+  { timestamps: true }
 );
 
-// Sub-schema for requestedBy (businessId + businessEmail)
-const RequestedBySchema = new Schema(
-  {
-    businessId: { type: String, required: true },
-    businessEmail: { type: String, required: true },
-  },
-  { _id: false }
-);
+clientSchema.index({ email: 1 }, { unique: true });
+clientSchema.index({ "businesses.businessId": 1 });
+clientSchema.index({ "businesses.businessEmail": 1 });
 
-// Main DocumentRequest schema
-const DocumentRequestSchema = new Schema<DocumentRequest>(
-  {
-    files: { type: [FileSchema], default: [] }, // Now supports multiple files
-
-    requestedBy: { type: RequestedBySchema, required: true },
-
-    type: { type: String }, // e.g., "application/pdf", "image/jpeg"
-    status: {
-      type: String,
-      enum: Object.values(DocumentStatus),
-      default: DocumentStatus.PENDING,
-    },
-
-    uploadedBy: { type: Schema.Types.ObjectId, ref: "Client" },
-
-    uploadedAt: { type: Date },
-    modifiedAt: { type: Date },
-    approvedAt: { type: Date },
-  },
-  {
-    timestamps: { createdAt: "createdAt", updatedAt: "modifiedAt" },
-  }
-);
-
-export default mongoose.model("DocumentRequest", DocumentRequestSchema);
+export const ClientModel = mongoose.model("Client", clientSchema);
