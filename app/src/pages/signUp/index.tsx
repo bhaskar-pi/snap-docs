@@ -7,7 +7,7 @@ import { mapEnumToOptions } from "@helpers/misc";
 import AuthLayout from "@components/auth-layout";
 import Button from "@components/button";
 import styles from "./singUp.module.css";
-import useAuthStore from "@store/useAuthStore";
+import useAuthStore from "@store/use-auth-store";
 
 const initialState: SignUpForm = {
   firstName: "",

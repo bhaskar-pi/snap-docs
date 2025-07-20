@@ -1,20 +1,26 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { UserRoundSearch } from "lucide-react";
 import styles from "./send-doc-request.module.css";
 import Button from "@components/button";
 import { Form } from "@components/form-fields";
 import Header from "@components/header";
+import { ClientType } from "@enums/clients";
 
-enum ClientType {
-  EXISTING = "existing",
-  NEW_CLIENT = "new-client",
+interface Props {
+  email: string;
+  fullName: string;
+  clientType: ClientType;
+  setClientType: (value: ClientType) => void;
+  onChangeDocumentReq: (prop: string, value: string) => void;
 }
 
-const ClientInformation: React.FC = () => {
-  const [clientType, setClientType] = useState<ClientType>(
-    ClientType.NEW_CLIENT
-  );
-
+const ClientInformation: React.FC<Props> = ({
+  email,
+  fullName,
+  clientType,
+  setClientType,
+  onChangeDocumentReq,
+}) => {
   const renderInputs = useCallback(() => {
     switch (clientType) {
       case ClientType.NEW_CLIENT:
@@ -22,16 +28,20 @@ const ClientInformation: React.FC = () => {
           <div>
             <Form.Input
               label="Full Name"
+              value={fullName}
               type="text"
               id="fullName"
               placeholder="Enter client's full name"
+              onChange={(e) => onChangeDocumentReq("fullName", e.target.value)}
               required
             />
             <Form.Input
+              value={email}
               label="Email Address"
               type="email"
               id="email"
               placeholder="Enter client's email"
+              onChange={(e) => onChangeDocumentReq("email", e.target.value)}
               required
             />
           </div>
@@ -40,6 +50,7 @@ const ClientInformation: React.FC = () => {
         return (
           <div>
             <Form.Select
+              required
               placeholder="Choose an existing client"
               label="Selet Client"
               options={[]}
@@ -49,7 +60,7 @@ const ClientInformation: React.FC = () => {
           </div>
         );
     }
-  }, [clientType]);
+  }, [clientType, email, fullName, onChangeDocumentReq]);
 
   return (
     <div className={styles.clientInfo}>

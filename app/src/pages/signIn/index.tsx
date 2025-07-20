@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import type { SignInForm } from "@custom-types/auth";
 import styles from "./signIn.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import useAuthStore from "@store/useAuthStore";
+import useAuthStore from "@store/use-auth-store";
 import AuthLayout from "@components/auth-layout";
 import { Form } from "@components/form-fields";
 import Button from "@components/button";

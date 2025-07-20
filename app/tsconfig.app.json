@@ -17,7 +17,8 @@
       "@constants/*": ["constants/*"],
       "@helpers/*": ["helpers/*"],
       "@api/*": ["api/*"],
-      "@store/*": ["store/*"]
+      "@store/*": ["store/*"],
+      "@config/*": ["config/*"]
       
     },
 

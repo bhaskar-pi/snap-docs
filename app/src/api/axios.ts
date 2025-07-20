@@ -3,6 +3,7 @@ import { redirect } from "react-router-dom";
 import toast from "react-hot-toast";
 import { ENV } from "@constants/env";
 import { getErrorMessage, getFirstZodErrorMessage } from "@helpers/validation";
+import { getToken } from "@config/storage";
 
 export const axiosInstance = axios.create({
   baseURL: ENV.API_BASE_URL,
@@ -13,7 +14,7 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+  const token = getToken();
   if (token) {
     config.headers = config.headers || {};
     config.headers.Authorization = `Bearer ${token}`;

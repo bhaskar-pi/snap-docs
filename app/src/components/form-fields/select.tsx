@@ -3,11 +3,12 @@ import React from "react";
 interface Props {
   label: string;
   placeholder: string;
-  value: string;
+  value?: string;
   onChange: (value: string[]) => void;
   options: { label: string; value: string }[];
   id?: string;
   required?: boolean;
+  className?: string;
 }
 
 const SelectField: React.FC<Props> = ({
@@ -18,9 +19,10 @@ const SelectField: React.FC<Props> = ({
   onChange,
   id,
   required = false,
+  className = "",
 }) => {
   return (
-    <div className="mb-3 custom-select-wrapper">
+    <div className={`mb-3 custom-select-wrapper ${className}`}>
       <label htmlFor={id} className="form-label">
         {label}
       </label>
