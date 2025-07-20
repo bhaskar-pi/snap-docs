@@ -5,6 +5,7 @@ import { connectMongoose } from "@config/database";
 
 import authRouter from "@modules/auth/auth.routes";
 import businessRouter from "@modules/business/business.routes";
+import clientRouter from "@modules/client/client.routes";
 
 const app = express();
 
@@ -16,8 +17,9 @@ app.use(
   })
 );
 
-app.use("/api/business", authRouter);
-app.use("/api/business", businessRouter);
+app.use("/api", authRouter);
+app.use("/api", businessRouter);
+app.use("/api", clientRouter);
 
 const port = ENV.PORT;
 

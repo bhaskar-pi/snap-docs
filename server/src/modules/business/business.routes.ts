@@ -6,10 +6,10 @@ import { validateBusiness } from "./business.middleware";
 const businessRouter = Router();
 
 businessRouter.post(
-  "/register",
+  "/business/register",
   validateBusiness(BusinessRegistrationRequest),
   registerBusiness
 );
-businessRouter.get("/:businessId", findBusinessById);
+businessRouter.get("/business/:businessId", findBusinessById);
 
 export default businessRouter;

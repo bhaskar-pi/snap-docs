@@ -6,7 +6,7 @@ import {
   getBusinessById,
 } from "./business.repository";
 import { getBusinessDto } from "./business.dto";
-import { BusinessRequest } from "@interfaces/business.types";
+import { BusinessRequest } from "@interfaces/business";
 
 export const registerBusiness = async (
   request: Request,

@@ -1,5 +1,5 @@
-import { BusinessDto } from "@dtos/business.dto";
-import { BusinessDocument } from "@interfaces/business.types";
+import { BusinessDto } from "@dtos/business";
+import { BusinessDocument } from "@interfaces/business";
 
 export const getBusinessDto = (business: BusinessDocument): BusinessDto => {
   return {

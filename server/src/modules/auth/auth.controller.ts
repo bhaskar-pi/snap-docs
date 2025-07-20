@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { ENV } from "config/env";
 import { getBusinessByEmail } from "@modules/business";
-import { Session } from "@interfaces/auth.types";
+import { Session } from "@interfaces/auth";
 
 export const login = async (request: Request, response: Response) => {
   try {
@@ -46,7 +46,7 @@ export const login = async (request: Request, response: Response) => {
     response.status(200).json({ message: "Login Successful", data: session });
   } catch (error) {
     console.error("Login error:", error);
-    return response
+    response
       .status(500)
       .json({ message: "Something went wrong. Please try again later" });
   }

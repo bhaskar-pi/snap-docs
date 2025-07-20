@@ -1,4 +1,4 @@
-import { BaseBusiness } from "shared/types/business.types";
+import { BaseBusiness } from "@interfaces/business";
 
 export interface BusinessDto extends Omit<BaseBusiness, "password"> {
   businessId: string;

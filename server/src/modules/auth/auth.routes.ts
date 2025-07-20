@@ -5,6 +5,6 @@ import { login } from "./auth.controller";
 
 const authRouter = Router();
 
-authRouter.post("/login", validateLoginRequest(LoginRequestValidation), login);
+authRouter.post("/business/login", validateLoginRequest(LoginRequestValidation), login);
 
 export default authRouter;
