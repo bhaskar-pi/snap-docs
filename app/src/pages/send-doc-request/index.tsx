@@ -61,6 +61,7 @@ const SendDocRequest: React.FC = () => {
         onSubmit={(e) => {
           e.preventDefault();
           e.stopPropagation();
+          onSubmit("sendRequest");
         }}
       >
         <div className="row">
@@ -91,10 +92,10 @@ const SendDocRequest: React.FC = () => {
         </div>
         <div className="d-flex justify-content-end gap-3 mt-2">
           <Button
-            type="submit"
             startIcon={CircleX}
             variant="neutral"
             className={styles.actionBtn}
+            width="40"
           >
             Cancel
           </Button>
@@ -103,14 +104,17 @@ const SendDocRequest: React.FC = () => {
             variant="secondary"
             className={styles.actionBtn}
             onClick={() => onSubmit("saveDraft")}
+            disabled
+            width="40"
           >
             Save as Draft
           </Button>
           <Button
+            type="submit"
             startIcon={Send}
             variant="primary"
             className={styles.actionBtn}
-            onClick={() => onSubmit("sendRequest")}
+            width="40"
           >
             Send Request
           </Button>

@@ -15,6 +15,7 @@ const DocumentRequestSchema = new Schema<DocumentRequest>(
       ref: "Client",
       required: true,
     },
+    dueDate: { type: String, required: false },
     files: { type: [FileSchema], default: [] },
     status: {
       type: String,

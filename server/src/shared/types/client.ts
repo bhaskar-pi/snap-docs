@@ -9,7 +9,7 @@ export interface AssociatedBusiness {
 }
 
 export interface Client {
-  id: string;
+  id?: string;
   fullName: string;
   email: string;
   phoneNumber?: string;

@@ -9,6 +9,7 @@
       "@dtos/*": ["shared/dtos/*"],
       "@interfaces/*": ["shared/types/*"],
       "@utils/*" : ["shared/utils/*"],
+      "@middlewares/*": ["shared/middlewares/*"],
       "@config/*": ["config/*"]
     },
     "rootDir": "src",

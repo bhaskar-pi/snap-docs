@@ -27,6 +27,8 @@ export interface DocumentRequest {
   /** Client who uploaded the document */
   clientId: Types.ObjectId | string;
 
+  dueDate?: string;
+
   /** Current status of the document (e.g., Uploaded, Approved, Rejected) */
   status?: DocumentStatus;
 

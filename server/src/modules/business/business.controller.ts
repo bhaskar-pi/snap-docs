@@ -4,7 +4,7 @@ import {
   createBusiness,
   getBusinessByEmail,
   getBusinessById,
-} from "./business.repository";
+} from "./business.service";
 import { getBusinessDto } from "./business.dto";
 import { BusinessRequest } from "@interfaces/business";
 

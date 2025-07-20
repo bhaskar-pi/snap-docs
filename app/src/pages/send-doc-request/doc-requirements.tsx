@@ -30,19 +30,15 @@ const DocRequirements: React.FC<Props> = ({
       name: doc,
     };
 
-    setSelectedDocuments((prevDocs) => {
-      const updatedDocuments = [...prevDocs, newDoc];
-      onChangeDocumentReq("documents", updatedDocuments);
-      return updatedDocuments;
-    });
+    const updatedDocuments = [...seletedDocuments, newDoc];
+    setSelectedDocuments(updatedDocuments);
+    onChangeDocumentReq("documents", updatedDocuments);
   };
 
   const removeDocument = (id: string) => {
-    setSelectedDocuments((prevDocs) => {
-      const updatedDocuments = prevDocs.filter((doc) => doc.id !== id);
-      onChangeDocumentReq("documents", updatedDocuments);
-      return updatedDocuments;
-    });
+    const updatedDocuments = seletedDocuments.filter((doc) => doc.id !== id);
+    setSelectedDocuments(updatedDocuments);
+    onChangeDocumentReq("documents", updatedDocuments);
   };
 
   return (

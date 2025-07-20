@@ -16,6 +16,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loadingText?: string;
   startIcon?: LucideIcon;
   endIcon?: LucideIcon;
+  width?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -27,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   startIcon: StartIcon,
   endIcon: EndIcon,
+  width = '100',
   ...props
 }) => {
   const variantStyle = getButtonVariantStyle(variant);
@@ -37,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${styles["button-base"]} ${stateClass} w-100 ${className}`.trim()}
+      className={`${styles["button-base"]} ${stateClass} w-${width} ${className}`.trim()}
       style={variantStyle}
       disabled={isLoading || disabled}
       {...props}

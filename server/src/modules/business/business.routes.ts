@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { BusinessRegistrationRequest } from "./business.validator";
 import { findBusinessById, registerBusiness } from "./business.controller";
-import { validateBusiness } from "./business.middleware";
+import { validateRequest } from "@middlewares/validate-request";
 
 const businessRouter = Router();
 
 businessRouter.post(
   "/business/register",
-  validateBusiness(BusinessRegistrationRequest),
+  validateRequest(BusinessRegistrationRequest),
   registerBusiness
 );
 businessRouter.get("/business/:businessId", findBusinessById);

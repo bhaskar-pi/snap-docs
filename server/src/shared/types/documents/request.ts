@@ -10,5 +10,6 @@ export interface ClientDocumentRequest {
   fullName: string;
   email: string;
   phoneNumber?: string;
+  dueDate?: string
   documents: Document[];
 }

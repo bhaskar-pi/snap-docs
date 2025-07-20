@@ -22,7 +22,13 @@ const Input: React.FC<InputTextProps> = ({
       <label htmlFor={id} className="form-label">
         {label}
       </label>
-      <input type={type} className={`form-control`} id={id} {...props} />
+      <input
+        autoComplete="off"
+        type={type}
+        className={`form-control`}
+        id={id}
+        {...props}
+      />
       {info && <div className="form-text">{info}</div>}
       {error && (
         <div className="text-danger mt-1" style={{ fontSize: 13 }}>

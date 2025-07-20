@@ -61,6 +61,7 @@
   display: flex;
   gap: 16px;
   margin-top: 12px;
+  flex-wrap: wrap;
 }
 
 .selectedDocsHeader {
@@ -97,6 +98,6 @@
 }
 
 .actionBtn {
-  width: 140px !important;
-  min-width: 120px !important;
+  width:180px !important;
+  min-width: 180px !important;
 }

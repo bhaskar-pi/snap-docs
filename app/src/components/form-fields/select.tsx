@@ -32,6 +32,7 @@ const SelectField: React.FC<Props> = ({
         value={value || ""}
         onChange={(e) => onChange([e.target.value])}
         required={required}
+        autoComplete="off"
       >
         <option value="" disabled>
           {placeholder}

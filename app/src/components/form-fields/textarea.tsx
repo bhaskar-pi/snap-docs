@@ -24,6 +24,7 @@ const Textarea: React.FC<TextareaProps> = ({
         className={`form-control ${className}`}
         rows={rows}
         {...props}
+        autoComplete="off"
       />
     </div>
   );

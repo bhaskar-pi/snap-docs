@@ -30,6 +30,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
         id={id}
         {...props}
         style={{ paddingRight: 40, ...props.style }}
+        autoComplete="off"
       />
       <button
         type="button"
