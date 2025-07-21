@@ -1,11 +1,10 @@
-import express from "express";
 import cors from "cors";
-import { ENV } from "@config/env";
+import express from "express";
 import { connectMongoose } from "@config/database";
-
-import authRouter from "@modules/auth/auth.routes";
-import businessRouter from "@modules/business/business.routes";
-import clientRouter from "@modules/client/client.routes";
+import { ENV } from "@config/env";
+import authRouter from "@routes/auth.routes";
+import businessRouter from "@routes/business.routes";
+import clientRouter from "@routes/client.routes";
 
 const app = express();
 

@@ -15,9 +15,19 @@ export const getFirstZodErrorMessage = (
 };
 
 export const getErrorMessage = (error: Error): string => {
-  return (
-    error?.response?.data?.message ||
-    error?.message ||
-    error?.response?.statusText
-  );
+  const message = error?.response?.data?.message;
+
+  if (typeof message === "string") {
+    return message;
+  }
+
+  if (typeof error?.message === "string") {
+    return error.message;
+  }
+
+  if (typeof error?.response?.statusText === "string") {
+    return error.response.statusText;
+  }
+
+  return "Something went wrong. Please try again.";
 };
